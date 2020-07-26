@@ -47,18 +47,18 @@
   
           {% if header|lower == "laptop" %}
           <td>
-              <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
-              <a href="#" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
+              <a href="{% url 'inv:e_laptop' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+              <a href="{% url 'inv:d_laptop' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
           </td>
           {% elif header|lower == "desktop" %}
           <td>
-              <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
-              <a href="#" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
+              <a href="{% url 'inv:e_desktop' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+              <a href="{% url 'inv:d_desktop' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
           </td>
           {% else %}
           <td>
-              <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
-              <a href="#" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
+              <a href="{% url 'inv:e_mobile' item.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+              <a href="{% url 'inv:d_mobile' item.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
           </td>
           {% endif %}
   
