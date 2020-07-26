@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2 class="display-4">{{header}} List</h2>
+<hr>
+
+<div class="container">
+
+    <div class="button-group">
+      <a href="{% url 'inventory:c_laptop' %}" class="btn btn-danger btn-lg" role="button">+ Add Laptop</a>
+      <a href="{% url 'inventory:c_desktop' %}" class="btn btn-danger btn-lg" role="button">+ Add Desktop</a>
+      <a href="{% url 'include:c_mobile'%}" class="btn btn-danger btn-lg" role="button">+ Add Mobile</a>
+ 
+
+
+      
+      
+    </div>
+
+    <hr>
+
+
+<table class="table table-hover text-monospace masthead bg-white  text-bold text-center">
+
+    <thead>
+        <tr>
+          <th>id</th>
+          <th>Model</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Issues</th>
+          <th></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+  
+        {% for item in items %}
+  
+        <tr>
+          <td>{{ item.pk }}
+          <td>{{ item.type_of_device }}</td>
+          <td>{{ item.price }} $</td>
+          <td>{{ item.status }}</td>
+          <td>{{ item.issue }}</td>
+  
+          {% if header|lower == "laptop" %}
+          <td>
+              <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+              <a href="#" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
+          </td>
+          {% elif header|lower == "desktop" %}
+          <td>
+              <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+              <a href="#" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
+          </td>
+          {% else %}
+          <td>
+              <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+              <a href="#" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > x</a>
+          </td>
+          {% endif %}
+  
+  
+        </tr>
+  
+        {% endfor %}
+      </tbody>
+    </table>
+  </table>
+
+{% endblock %}
